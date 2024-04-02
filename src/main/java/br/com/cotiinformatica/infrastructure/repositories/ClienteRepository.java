@@ -18,4 +18,11 @@ public interface ClienteRepository extends JpaRepository<Cliente, UUID> {
 	// Consultar um cliente através do cpf
 	@Query("select c from Cliente c where c.cpf = :pCpf")
 	Cliente findByCpf(@Param("pCpf") String cpf);
+	
+	// Consultar um cliente através do email e da senha
+	@Query("select c from Cliente c where c.email = :pEmail and c.senha = :pSenha")
+	Cliente findByEmailAndSenha(
+			@Param("pEmail") String email,
+			@Param("pSenha") String senha);
+	
 }

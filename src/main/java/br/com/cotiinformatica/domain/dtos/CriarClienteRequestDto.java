@@ -17,6 +17,11 @@ public class CriarClienteRequestDto {
 	@NotEmpty(message = "Por favor, informe o email do cliente.")
 	private String email;
 	
+	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$", 
+			message = "Por favor, informe a senha com letras minúsculas, números, símbolos e pelo menos 8 caracteres.")
+	@NotEmpty(message = "Por favor, informe a senha do cliente.")
+	private String senha;
+	
 	@Pattern(regexp = "^[0-9]{11}$", message = "Por favor, informe exatamente 11 dígitos numéricos.")
 	@NotEmpty(message = "Por favor, informe o cpf do cliente.")
 	private String cpf;
